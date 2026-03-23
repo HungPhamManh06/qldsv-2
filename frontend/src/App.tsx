@@ -375,7 +375,7 @@ if (!authUser) {
       <div
         className="relative flex min-h-screen items-center justify-center p-4"
         style={{
-          backgroundImage: "url('/pc.jpg')",
+          backgroundImage: "url('/pc1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
