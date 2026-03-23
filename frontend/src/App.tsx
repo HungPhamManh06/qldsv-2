@@ -370,13 +370,21 @@ export default function App() {
   // ─────────────────────────────────────────────────────────
   // Màn hình đăng nhập
   // ─────────────────────────────────────────────────────────
-  if (!authUser) {
+if (!authUser) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4">
+      <div
+        className="relative flex min-h-screen items-center justify-center p-4"
+        style={{
+          backgroundImage: "url('/pc.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/60" />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="w-full max-w-md rounded-2xl bg-slate-800/80 p-8 shadow-2xl backdrop-blur-sm"
+          className="relative z-10 w-full max-w-md rounded-2xl bg-slate-800/80 p-8 shadow-2xl backdrop-blur-sm"
         >
           <div className="mb-8 text-center">
             <h1 className="mb-2 text-3xl font-bold text-white">📚 QLDSV</h1>
