@@ -577,22 +577,34 @@ if (!authUser) {
       <main className="mx-auto max-w-7xl space-y-8 px-4 py-8">
         {/* Stats */}
         <div className="grid gap-4 sm:grid-cols-3">
-          {[
-            { label: "Tong sinh vien", value: stats.totalStudents, color: "text-sky-400" },
-            { label: "Ty le dat", value: `${stats.passRate}%`, color: "text-emerald-400" },
-            {
-              label: "Sinh vien dan dau",
-              value: stats.topStudent ? `${stats.topStudent.fullName} (${stats.topStudent.average})` : "Chua co du lieu",
-              color: "text-amber-400",
-              small: true,
-            },
-          ].map((stat, i) => (
-            <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }} className="rounded-xl bg-slate-800/50 p-6">
-              <p className="text-sm text-slate-400">{stat.label}</p>
-              <p className={`font-bold ${stat.color} ${stat.small ? "text-lg" : "text-3xl"}`}>{stat.value}</p>
-            </motion.div>
-          ))}
+         {[
+  { label: "Tong sinh vien", value: stats.totalStudents, color: "text-sky-400" },
+  { label: "Ty le dat", value: `${stats.passRate}%`, color: "text-emerald-400" },
+  {
+    label: "Sinh vien dan dau",
+    value: stats.topStudent ? `${stats.topStudent.fullName} (${stats.topStudent.average})` : "Chua co du lieu",
+    color: "text-amber-400",
+    small: true,
+  },
+].map((stat, i) => (
+  <motion.div key={stat.label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: i * 0.1 }}
+    className="relative rounded-xl overflow-hidden p-6"
+    style={{
+      backgroundImage: "url('pc.jpg')",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    {/* Lớp tối phủ */}
+    <div className="absolute inset-0 bg-black/60" />
+    {/* Nội dung */}
+    <div className="relative z-10">
+      <p className="text-sm text-slate-300">{stat.label}</p>
+      <p className={`font-bold ${stat.color} ${stat.small ? "text-lg" : "text-3xl"}`}>{stat.value}</p>
+    </div>
+  </motion.div>
+))}
         </div>
 
         {/* Admin Forms */}
